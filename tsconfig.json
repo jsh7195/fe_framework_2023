@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    // "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "outDir": "./dist/",
+    "paths": {
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@const/*": [
+        "src/lib/constants/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@keys": [
+        "src/keyfactory/QueryKeys"
+      ],
+      "@atm/*": [
+        "src/atoms/*"
+      ],
+      "@cmp/*": [
+        "src/components/*"
+      ],
+      "@tmp/*": [
+        "src/template/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@page/*": [
+        "src/page/*"
+      ],
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
