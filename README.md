@@ -7,5 +7,3 @@ zustand
 stroybook
 
 cypress
-
-main push test
