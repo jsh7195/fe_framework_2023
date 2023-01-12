@@ -6,8 +6,8 @@ const axiosHeaders = {
 };
 
 const _axios = axios.create({
-    // baseURL: 'http://localhost:3000',
-    baseURL: 'https://bpdiarydev.openit.co.kr',
+    baseURL: 'http://localhost:3000',
+    // baseURL: 'https://bpdiarydev.openit.co.kr',
     headers: axiosHeaders,
     timeout: 100000,
     paramsSerializer: {

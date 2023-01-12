@@ -7,6 +7,7 @@ import Test from './test';
 import Error from '@cmp/common/Error';
 import ErrorBoundary from '@lib/ErrorBoundary';
 import BoundaryWrap from '@lib/BoundaryWrap';
+import GlobalLoading from '@cmp/loading/GlobalLoading';
 // import { ErrorBoundary } from 'react-error-boundary'
 
 
@@ -30,6 +31,7 @@ function App() {
           children={<Test />}
         />
       </header>
+      <GlobalLoading />
     </div >
   );
 }

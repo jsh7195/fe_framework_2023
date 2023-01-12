@@ -10,6 +10,7 @@ import { HistoryRouter } from '@lib/router/HistoryRouter';
 import { myHistory } from '@lib/router/history';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import GlobalLoading from '@cmp/loading/GlobalLoading';
 
 const queryClient = new QueryClient({
   defaultOptions: {

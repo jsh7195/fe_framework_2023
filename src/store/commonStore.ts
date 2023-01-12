@@ -6,6 +6,7 @@ import produce from 'immer';
 export interface ICommon {
     sample: number;
     setSample: () => void;
+    isLoading: boolean;
     [prop: string]: any;
 }
 
@@ -18,6 +19,7 @@ export const commonStore = create<ICommon>()(
             //     denylist: [], // optional, if allowlist set, denylist will be ignored
             // },
             (set) => ({
+                isLoading: false,
                 sample: 0,
                 setSample: (): void => set((state) => ({ sample: state.sample + 1 })),
             }),
