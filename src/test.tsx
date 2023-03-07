@@ -37,7 +37,7 @@ const Test = (props: any) => {
         isFetching,
         refetch,
     } = useQuery(['test'], fetch, {
-        enabled: true,
+        enabled: false,
         select(data) {
             return data.legal;
         },

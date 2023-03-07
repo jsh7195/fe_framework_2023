@@ -8,6 +8,8 @@ import Error from '@cmp/common/Error';
 import ErrorBoundary from '@lib/ErrorBoundary';
 import BoundaryWrap from '@lib/BoundaryWrap';
 import GlobalLoading from '@cmp/loading/GlobalLoading';
+import TestMap from '@cmp/TestMap';
+import TestMap2 from '@cmp/TestMap2';
 // import { ErrorBoundary } from 'react-error-boundary'
 
 
@@ -17,12 +19,15 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <TestMap />
+      {/* <TestMap2 /> */}
+      {/* <header className="App-header">
         <p>
           Edit test <code>src/App.tsx</code> and save to reload.
 
           {!!sample}
         </p>
+        
         <BoundaryWrap
           isRetry={false}
           errorFallback={Error}
@@ -30,7 +35,7 @@ function App() {
           message={'error가 발생했습니다'}
           children={<Test />}
         />
-      </header>
+      </header> */}
       <GlobalLoading />
     </div >
   );
