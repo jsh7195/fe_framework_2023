@@ -20,7 +20,6 @@ interface Ilegal {
 const Test = (props: any) => {
 
     // const [isPending, startTransition] = useTransition();
-
     const fetch = async () => {
         const rst: Itest = await _axios.post('/legal/list')
         console.log('rst', rst);

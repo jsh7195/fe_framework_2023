@@ -1,5 +1,5 @@
 import React from 'react'
-import { QueryClient, useQuery, QueryErrorResetBoundary } from '@tanstack/react-query';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import ErrorBoundary from './ErrorBoundary';
 
 export interface IBoundary {
