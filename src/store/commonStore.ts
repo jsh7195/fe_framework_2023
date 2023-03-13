@@ -1,35 +1,25 @@
-import create from 'zustand';
-import { createJSONStorage, devtools, persist } from 'zustand/middleware';
-// import persist from '@store/persist';
-import produce from 'immer';
+import { create } from 'zustand'
+import { persist, devtools } from 'zustand/middleware';
 
 export interface ICommon {
-    sample: number;
-    setSample: () => void;
-    isLoading: boolean;
+    test: string;
+    setTest: () => void;
     [prop: string]: any;
 }
 
-export const commonStore = create<ICommon>()(
+const commonStore = create<ICommon>()(
     devtools(
         persist(
-            // {
-            //     key: 'common', // required, child key of storage
-            //     allowlist: ['sample'], // optional, will save everything if allowlist is undefined
-            //     denylist: [], // optional, if allowlist set, denylist will be ignored
-            // },
             (set) => ({
-                isLoading: false,
-                sample: 0,
-                setSample: (): void => set((state) => ({ sample: state.sample + 1 })),
+                test: 'test',
+                setTest: () => set((state) => ({ state: 'test2' }))
             }),
             {
-                name: 'test-storage',
-                storage: createJSONStorage(() => sessionStorage),
+                name: 'common',
+                getStorage: () => localStorage,
             }
         )
     )
-);
-
+)
 
 export default commonStore;
