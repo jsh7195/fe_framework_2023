@@ -28,45 +28,45 @@ axios.interceptors.request.use(
     return config;
   },
   (error: AxiosError) => {
-    // 요청 에러 처리
-    return Promise.reject(error);
+    if (error.request) {
+      handleErrorResponse(0, 'Request failed');
+    } else {
+      handleErrorResponse(0, 'Request failed');
+    }
   },
 );
 
 // 응답 인터셉터
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
+    // 서비스 에러 발생, 요청한곳으로 전파
+    if (response.data && _.has(response.data, 'errorCode')) {
+      const errorCode = response.data.errorCode;
+      throw new Error(errorCode);
+    }
     return response;
   },
   (error: AxiosError) => {
-    // HTTP 응답이 200이 아닌 경우
+    // 오류발생
     if (error.response && _.isEmpty(error.response)) {
       const status = error.response?.status;
       const data = error.response?.data as IReponseData;
 
       let errorCode = '500';
 
+      // errorCode 검사
       if (data && _.has(data, 'errorCode') && data.errorCode) {
         errorCode = data.errorCode;
       }
 
-      if (status >= 400 && status < 500) {
-        // 400 ~ 499 에러 처리
-        handleErrorResponse(status, errorCode);
-      } else if (status >= 500) {
-        // 500 에러 처리
-        handleErrorResponse(status, '500');
-      } else if (data && errorCode) {
-        // 서버에서 발생한 에러 처리
-        throw new Error(errorCode);
-      }
+      handleErrorResponse(status, errorCode);
     } else if (error.request) {
-      // 요청이 전송되지 않은 경우
-      console.error(error.request);
+      // 요청실패
+      handleErrorResponse(0, 'Request failed');
     } else {
-      console.error(error.message);
+      // 기타 문제
+      handleErrorResponse(0, error.message);
     }
-    return Promise.reject(error);
   },
 );
 
