@@ -13,7 +13,7 @@ interface IReponseData {
 }
 
 const instance = axios.create({
-  baseURL: '',
+  baseURL: 'https://bpdiarydev.openit.co.kr/',
 });
 
 // 요청 인터셉터 설정
